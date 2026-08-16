@@ -1,0 +1,40 @@
+
+:root {
+  --bg-color: #f8fafc;
+  --card-bg: #ffffff;
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  --line-color: #94a3b8;
+  --cross-line-color: #3b82f6;
+  --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --card-shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --primary: #3b82f6;
+  --primary-hover: #2563eb;
+  --default-branch: #94a3b8;
+  --modal-bg: rgba(0, 0, 0, 0.4);
+  --border-color: #e2e8f0;
+}
+
+body.dark-theme {
+  --bg-color: #0f172a;
+  --card-bg: #1e293b;
+  --text-main: #f1f5f9;
+  --text-muted: #94a3b8;
+  --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+  --card-shadow-hover: 0 10px 20px rgba(0, 0, 0, 0.6);
+  --border-color: #334155;
+  --modal-bg: rgba(15, 23, 42, 0.85);
+}
+
+/* Эффект Неона для темной темы */
+body.dark-theme .tree li::before, 
+body.dark-theme .tree li::after, 
+body.dark-theme .tree ul ul::before { 
+  filter: drop-shadow(0 0 4px var(--branch-color, var(--default-branch))); 
+}
+body.dark-theme .cross-link-path { 
+  filter: drop-shadow(0 0 4px var(--branch-color)); opacity: 0.8; 
+}
+body.dark-theme .person-card:hover { 
+  box-shadow: 0 0 15px var(--branch-color, var(--primary)); 
+}

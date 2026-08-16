@@ -1,0 +1,146 @@
+/* ФАЙЛ: css/tree.css */
+
+/* КОНТЕЙНЕР ДЕРЕВА */
+/* Теперь занимает максимум доступного места */
+.tree-container { width: 100%; height: calc(100vh - 32px); min-height: 400px; overflow: hidden; border: 2px dashed var(--line-color); border-radius: 20px; background-color: var(--card-bg); cursor: grab; touch-action: none; position: relative; box-shadow: inset 0 2px 4px rgba(0,0,0,0.02); transition: background-color 0.4s ease; border-color: var(--border-color); }
+.tree-container:active { cursor: grabbing; }
+
+/* ПЛАВАЮЩИЕ КНОПКИ УПРАВЛЕНИЯ (СЛЕВА СВЕРХУ) */
+.top-actions { position: absolute; top: 20px; left: 20px; display: flex; gap: 8px; z-index: 100; flex-wrap: wrap; }
+
+/* ПЛАВАЮЩИЕ КНОПКИ КАМЕРЫ (СПРАВА СНИЗУ) */
+.tree-controls { position: absolute; bottom: 20px; right: 20px; display: flex; flex-direction: column; gap: 8px; z-index: 100; background: rgba(255,255,255,0.9); padding: 8px; border-radius: 12px; box-shadow: var(--card-shadow); backdrop-filter: blur(4px); border: 1px solid var(--border-color); }
+body.dark-theme .tree-controls { background: rgba(15, 23, 42, 0.8); }
+
+.control-btn { width: 36px; height: 36px; border-radius: 8px; border: none; background: var(--card-bg); color: var(--text-main); font-size: 1.2rem; font-weight: bold; cursor: pointer; transition: background 0.2s, color 0.2s; display: flex; align-items: center; justify-content: center; }
+.control-btn:hover { background: var(--bg-color); color: var(--primary); }
+
+#tree-wrapper { display: inline-block; position: absolute; top: 0; left: 0; min-width: max-content; transform-origin: 0 0; padding: 120px; will-change: transform; backface-visibility: hidden; }
+
+/* SVG-СЛОЙ ДЛЯ ВСЕХ ЛИНИЙ */
+#metro-lines { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; overflow: visible; }
+.tree { display: inline-block; position: relative; z-index: 2; }
+
+/* Отключаем дефолтные линии CSS */
+.tree li::before, .tree li::after, .tree ul::before, .tree ul ul::before { display: none !important; content: none !important; }
+
+.tree ul { padding-top: 30px; position: relative; display: inline-flex; justify-content: center; margin: 0 auto; padding-left: 0; }
+.tree li { display: flex; flex-direction: column; align-items: center; position: relative; padding: 30px 10px 0 10px; list-style-type: none; }
+
+.family-unit { display: inline-flex; align-items: center; justify-content: center; position: relative; padding: 0; margin-bottom: 20px; z-index: 2; }
+
+/* =========================================
+   ДВУХЦВЕТНЫЙ КОННЕКТОР БРАКА
+========================================= */
+.partner-connector { display: flex; align-items: center; justify-content: center; padding: 0 12px; position: relative; z-index: 1; }
+
+.partner-connector::before { 
+  content: ''; 
+  position: absolute; top: 50%; left: -10px; right: -10px; height: 2px; 
+  background: linear-gradient(to right, var(--left-color, var(--line-color)) 50%, var(--right-color, var(--line-color)) 50%); 
+  z-index: -1; 
+}
+
+.ring { 
+  display: flex; align-items: center; justify-content: center; 
+  width: 28px; height: 28px; flex-shrink: 0; 
+  background: linear-gradient(var(--card-bg), var(--card-bg)) padding-box,
+              linear-gradient(to right, var(--left-color, var(--line-color)) 50%, var(--right-color, var(--line-color)) 50%) border-box;
+  border: 2px solid transparent; 
+  border-radius: 50%; 
+  font-size: 1.3rem; line-height: 1; z-index: 10; position: relative; 
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05); 
+}
+
+.ring::after {
+  content: '⚭';
+  background: linear-gradient(to right, var(--left-color, var(--line-color)) 50%, var(--right-color, var(--line-color)) 50%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+body.dark-theme .ring { box-shadow: 0 2px 5px rgba(0,0,0,0.5); }
+
+/* =========================================
+   КАРТОЧКА ПЕРСОНЫ С ЦВЕТАМИ СЕМЬИ
+========================================= */
+.person-card { 
+  width: 170px; 
+  flex-shrink: 0; 
+  background: var(--card-bg); 
+  border-radius: 16px; 
+  padding: 16px 16px 12px 16px; 
+  box-shadow: var(--card-shadow); 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  text-align: center; 
+  border: 2px solid var(--branch-color, var(--border-color)); 
+  position: relative; z-index: 10; 
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.4s; 
+  cursor: pointer; 
+}
+
+.person-card:hover { transform: translateY(-3px); box-shadow: var(--card-shadow-hover); }
+
+/* Подсветка фокуса перебивает цвет рамки на системный синий */
+.person-card.highlight { border-color: var(--primary); box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15); }
+
+.avatar-wrapper { width: 56px; height: 56px; border-radius: 50%; overflow: hidden; background: var(--bg-color); margin-bottom: 12px; border: 2px solid var(--card-bg); box-shadow: 0 2px 4px rgba(0,0,0,0.1); flex-shrink: 0; }
+.avatar-img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ФИКСИРОВАННАЯ ОБЛАСТЬ ИМЕНИ (ровно на 2 строки) */
+.person-name-container {
+  width: 100%;
+  height: 2.4em;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+}
+
+.person-name-text { 
+  font-size: 0.95rem; 
+  font-weight: 700; 
+  line-height: 1.2; 
+  word-break: break-word; 
+  color: var(--text-main); 
+  text-align: center;
+}
+
+.person-dates { font-size: 0.7rem; font-weight: 600; color: var(--text-muted); background: var(--bg-color); padding: 3px 10px; border-radius: 12px; margin-bottom: 0; display: inline-block; letter-spacing: 0.5px; border: 1px solid var(--border-color); }
+
+.group-card { width: auto; min-width: 130px; padding: 10px 16px; background: var(--bg-color); border-color: var(--branch-color, var(--default-branch)); border-style: dashed; border-width: 2px; color: var(--text-muted); box-shadow: none; border-radius: 12px; justify-content: center; }
+.group-card:hover { background: var(--card-bg); box-shadow: var(--card-shadow); transform: translateY(-2px); }
+
+/* =========================================
+   СТИЛИ ДЛЯ SVG-ЛИНИЙ
+========================================= */
+.tree-link-path, .cross-link-path, .step-link-path { fill: none; stroke-width: 2.5px; transition: stroke 0.3s, opacity 0.3s; }
+.cross-link-path { stroke-dasharray: 6 6; opacity: 0.6; }
+.step-link-path { stroke-dasharray: 8 6; opacity: 0.9; } 
+
+/* =========================================
+   ИНТЕРАКТИВНОЕ ВЫДЕЛЕНИЕ (FADE)
+========================================= */
+.tree-dimmed .person-card:not(.path-active) { opacity: 0.35; filter: grayscale(80%); border-color: var(--border-color) !important; box-shadow: none; }
+.tree-dimmed .group-card:not(.path-active) { opacity: 0.35; }
+.tree-dimmed .partner-connector:not(.path-active) { opacity: 0.3; }
+.person-card.click-active { box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.3); transform: translateY(-4px); }
+
+.tree-dimmed .tree-link-path:not(.path-active),
+.tree-dimmed .step-link-path:not(.path-active) { opacity: 0.2; stroke: var(--border-color) !important; }
+.tree-dimmed .cross-link-path:not(.path-active) { opacity: 0.1; stroke: var(--line-color) !important; }
+
+/* =========================================
+   МОБИЛЬНАЯ ВЕРСИЯ
+========================================= */
+@media (max-width: 768px) {
+  .tree-container { height: calc(100vh - 16px); border-radius: 12px; }
+  .person-card { width: 145px; padding: 12px; } 
+  .person-name-text { font-size: 0.85rem; }
+  .top-actions { top: 12px; left: 12px; gap: 6px; }
+  .btn-small { padding: 6px 12px; font-size: 0.8rem; }
+  #tree-wrapper { padding: 80px 40px; }
+}

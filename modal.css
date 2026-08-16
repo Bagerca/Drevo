@@ -1,0 +1,78 @@
+.modal-overlay { position: fixed; inset: 0; background: var(--modal-bg); backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); display: flex; align-items: center; justify-content: center; z-index: 1000; transition: opacity 0.3s ease, visibility 0.3s; padding: 20px; }
+.modal-overlay.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+
+.new-modal { background: var(--card-bg); padding: 32px 24px; border-radius: 28px; box-shadow: 0 20px 40px rgba(0,0,0,0.15); width: 100%; max-width: 440px; max-height: 90vh; text-align: left; transform: translateY(0); transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid var(--border-color); display: flex; flex-direction: column; }
+.modal-overlay.hidden .new-modal { transform: translateY(30px); }
+
+.modal-title { font-size: 1.6rem; font-weight: 700; color: var(--text-main); margin-bottom: 12px; line-height: 1.2; }
+.modal-desc { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 24px; line-height: 1.5; }
+
+.search-wrapper { position: relative; margin-bottom: 16px; flex-shrink: 0; }
+.person-search { width: 100%; height: 52px; padding: 0 54px 0 44px; border-radius: 16px; border: 1px solid var(--border-color); font-size: 0.95rem; outline: none; background: var(--bg-color); color: var(--text-main); transition: border-color 0.2s, box-shadow 0.2s; }
+body.dark-theme .person-search { background-color: #0f172a; border-color: #334155; }
+.person-search:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15); }
+.person-search::placeholder { color: #94a3b8; }
+
+.search-icon { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: #94a3b8; pointer-events: none; display: flex; }
+.esc-badge { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); background: #e2e8f0; color: #64748b; font-size: 0.7rem; font-weight: 700; padding: 4px 8px; border-radius: 8px; pointer-events: none; }
+body.dark-theme .esc-badge { background: #334155; color: #94a3b8; }
+
+.autocomplete-list { display: block; flex-grow: 1; overflow-y: auto; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 16px; margin-bottom: 24px; box-shadow: inset 0 2px 4px rgba(0,0,0,0.02); }
+.autocomplete-list::-webkit-scrollbar { width: 6px; }
+.autocomplete-list::-webkit-scrollbar-track { background: transparent; }
+.autocomplete-list::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 10px; }
+
+.autocomplete-item { padding: 12px 16px; cursor: pointer; display: flex; align-items: center; gap: 16px; border-bottom: 1px solid var(--border-color); transition: background 0.2s; }
+.autocomplete-item:last-child { border-bottom: none; }
+.autocomplete-item:hover { background: var(--bg-color); }
+body.dark-theme .autocomplete-item:hover { background: #334155; }
+.autocomplete-item.empty { color: var(--text-muted); justify-content: center; font-style: italic; }
+
+.search-avatar { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+.search-info { display: flex; flex-direction: column; gap: 4px; overflow: hidden; }
+.search-name { font-size: 1rem; font-weight: 600; color: var(--text-main); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.search-sub { display: flex; align-items: center; gap: 8px; font-size: 0.8rem; color: var(--text-muted); }
+.family-badge { font-size: 0.65rem; font-weight: 800; padding: 3px 6px; border-radius: 6px; letter-spacing: 0.5px; }
+
+.modal-buttons.center { display: flex; justify-content: center; flex-shrink: 0; }
+.btn-outline-pill { width: 100%; background: transparent; color: var(--text-main); border: 1px solid var(--border-color); border-radius: 16px; padding: 14px 32px; font-weight: 600; font-size: 1rem; cursor: pointer; transition: all 0.2s; }
+.btn-outline-pill:hover { border-color: var(--text-muted); background: var(--bg-color); }
+body.dark-theme .btn-outline-pill:hover { background: #334155; border-color: #475569; }
+
+/* =========================================
+   НОВЫЙ БЛОК: БОКОВАЯ ПАНЕЛЬ / ШТОРКА (BIO)
+========================================= */
+.person-panel { position: fixed; z-index: 1500; background: var(--card-bg); box-shadow: -10px 0 40px rgba(0,0,0,0.1); border: 1px solid var(--border-color); transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.3s; display: flex; flex-direction: column; overflow: hidden; }
+body.dark-theme .person-panel { box-shadow: -10px 0 40px rgba(0,0,0,0.6); }
+
+/* Состояние скрытости */
+.person-panel.hidden { opacity: 0; pointer-events: none; }
+
+/* ПК версия: Выезжает справа */
+@media (min-width: 769px) {
+  .person-panel { top: 20px; right: 20px; bottom: 20px; width: 340px; border-radius: 24px; transform: translateX(120%); }
+  .person-panel:not(.hidden) { transform: translateX(0); }
+}
+
+/* Мобильная версия: Выезжает снизу (Шторка) */
+@media (max-width: 768px) {
+  .person-panel { bottom: 0; left: 0; right: 0; max-height: 85vh; border-radius: 28px 28px 0 0; transform: translateY(120%); box-shadow: 0 -10px 40px rgba(0,0,0,0.15); border-bottom: none; }
+  .person-panel:not(.hidden) { transform: translateY(0); }
+  body.dark-theme .person-panel { box-shadow: 0 -10px 40px rgba(0,0,0,0.6); }
+}
+
+.btn-close-panel { position: absolute; top: 16px; right: 16px; width: 36px; height: 36px; border-radius: 50%; border: none; background: var(--bg-color); color: var(--text-muted); font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s; z-index: 10; }
+.btn-close-panel:hover { background: var(--border-color); color: var(--text-main); }
+
+.panel-header { padding: 32px 24px 24px; text-align: center; border-bottom: 1px solid var(--border-color); background: var(--bg-color); }
+.panel-avatar-wrapper { width: 96px; height: 96px; border-radius: 50%; margin: 0 auto 16px; background: var(--card-bg); border: 4px solid var(--card-bg); box-shadow: 0 4px 12px rgba(0,0,0,0.08); overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.panel-avatar-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+.panel-avatar-empty { width: 100%; height: 100%; border: 3px solid; border-radius: 50%; }
+
+.panel-name { font-size: 1.4rem; font-weight: 700; color: var(--text-main); margin-bottom: 12px; line-height: 1.2; }
+.panel-meta { display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap; }
+.panel-dates { font-size: 0.85rem; font-weight: 600; color: var(--text-muted); background: var(--card-bg); padding: 4px 12px; border-radius: 12px; border: 1px solid var(--border-color); }
+
+.panel-body { padding: 24px; overflow-y: auto; flex-grow: 1; }
+.panel-bio { font-size: 1rem; line-height: 1.6; color: var(--text-main); }
+.panel-bio.empty-bio { font-style: italic; opacity: 0.7; text-align: center; color: var(--text-muted); }
