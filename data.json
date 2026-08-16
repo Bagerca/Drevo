@@ -1,0 +1,402 @@
+[
+  {
+    "id": "b1",
+    "name": "Қьырса Бебия",
+    "familyId": "bebiya",
+    "dates": "",
+    "photo": "img/b1.jpg",
+    "bio": "",
+    "children": ["b2"]
+  },
+  {
+    "id": "b2",
+    "name": "Гака Бебия",
+    "familyId": "bebiya",
+    "dates": "",
+    "photo": "img/b2.jpg",
+    "bio": "",
+    "children": ["b3"]
+  },
+  {
+    "id": "b3",
+    "name": "Қырбей Бебия",
+    "familyId": "bebiya",
+    "dates": "",
+    "photo": "img/b3.jpg",
+    "bio": "",
+    "children": ["b4", "b10", "b11", "b12"]
+  },
+  {
+    "id": "b4",
+    "name": "Бебия Борис/Рамин Карбеевич",
+    "familyId": "bebiya",
+    "dates": "1948",
+    "photo": "img/b4.jpg",
+    "bio": "",
+    "partner": "liana_node",
+    "children": ["b5", "b6"]
+  },
+
+  {
+    "id": "liana_family_root",
+    "name": "Род Лианы",
+    "familyId": "liana",
+    "isGroup": true,
+    "dates": "",
+    "photo": "",
+    "bio": "",
+    "children": ["liana_node", "madona_node", "manana_node", "aldona_node"]
+  },
+  {
+    "id": "liana_node",
+    "name": "Бебия Лиана Мамиевна",
+    "familyId": "liana",
+    "dates": "1958",
+    "photo": "img/liana_node.jpg",
+    "bio": ""
+  },
+  {
+    "id": "madona_node",
+    "name": "Мадона",
+    "familyId": "liana",
+    "dates": "",
+    "photo": "img/madona_node.jpg",
+    "bio": ""
+  },
+  {
+    "id": "manana_node",
+    "name": "Манана",
+    "familyId": "liana",
+    "dates": "",
+    "photo": "img/manana_node.jpg",
+    "bio": ""
+  },
+  {
+    "id": "aldona_node",
+    "name": "Альдона",
+    "familyId": "liana",
+    "dates": "",
+    "photo": "img/aldona_node.jpg",
+    "bio": "",
+    "children": ["merab_aldona", "timur_aldona"]
+  },
+  {
+    "id": "merab_aldona",
+    "name": "Мераб",
+    "familyId": "liana",
+    "dates": "",
+    "photo": "img/merab_aldona.jpg",
+    "bio": ""
+  },
+  {
+    "id": "timur_aldona",
+    "name": "Тимур",
+    "familyId": "liana",
+    "dates": "",
+    "photo": "",
+    "bio": ""
+  },
+
+  {
+    "id": "b5",
+    "name": "Бебия Олег Борисович",
+    "familyId": "bebiya",
+    "dates": "11.12.1980",
+    "photo": "img/b5.jpg",
+    "bio": "",
+    "partner": "sv3",
+    "children": ["b7", "b8"],
+    "stepChildren": ["b9"]
+  },
+  {
+    "id": "sv3",
+    "name": "Бебия Юлия Васильевна",
+    "familyId": "sviridov",
+    "dates": "1978",
+    "photo": "img/sv3.jpg",
+    "bio": "",
+    "children": ["b7", "b8", "b9"]
+  },
+  {
+    "id": "braun",
+    "name": "Браун",
+    "familyId": "braun",
+    "dates": "",
+    "photo": "",
+    "bio": "Биологический отец Кристины",
+    "children": ["b9"]
+  },
+  {
+    "id": "b6",
+    "name": "Бебия Даур Борисович",
+    "familyId": "bebiya",
+    "dates": "1985",
+    "photo": "img/b6.jpg",
+    "bio": ""
+  },
+  {
+    "id": "b7",
+    "name": "Бебия Баграт Олегович",
+    "familyId": "bebiya",
+    "dates": "31.07.2008",
+    "photo": "img/b7.jpg",
+    "bio": ""
+  },
+  {
+    "id": "b8",
+    "name": "Бебия Диана Олеговна",
+    "familyId": "bebiya",
+    "dates": "26.07.2011",
+    "photo": "img/b8.jpg",
+    "bio": ""
+  },
+  
+  {
+    "id": "b9",
+    "name": "Вишнякова Кристина Олеговна",
+    "familyId": "braun",
+    "dates": "01.04.1997",
+    "photo": "img/b9.jpg",
+    "bio": "",
+    "partner": "v1",
+    "children": ["v2", "v3"]
+  },
+  {
+    "id": "v1",
+    "name": "Вишняков Константин Станиславович",
+    "familyId": "vishnyakov",
+    "dates": "23.04.1996",
+    "photo": "img/v1.jpg",
+    "bio": "",
+    "children": ["v3"],
+    "stepChildren": ["v2"]
+  },
+  {
+    "id": "trofimov_danil",
+    "name": "Трофимов Даниил Владимирович",
+    "familyId": "trofimov",
+    "dates": "10.02.1994",
+    "photo": "",
+    "bio": "Биологический отец Анны",
+    "children": ["v2"]
+  },
+  {
+    "id": "v2",
+    "name": "Трофимова Анна Данииловна",
+    "familyId": "trofimov",
+    "dates": "20.03.2019",
+    "photo": "img/v2.jpg",
+    "bio": ""
+  },
+  {
+    "id": "v3",
+    "name": "Вишняков Денис Константинович",
+    "familyId": "vishnyakov",
+    "dates": "01.12.2025",
+    "photo": "img/v3.jpg",
+    "bio": ""
+  },
+
+  {
+    "id": "b10",
+    "name": "Арвелод (Мераб) Бебия",
+    "familyId": "bebiya",
+    "dates": "",
+    "photo": "img/b10.jpg",
+    "bio": "",
+    "children": ["b10_1", "b10_2", "b10_3"]
+  },
+  {
+    "id": "b10_1",
+    "name": "Сырма Бебия",
+    "familyId": "bebiya",
+    "dates": "",
+    "photo": "img/b10_1.jpg",
+    "bio": ""
+  },
+  {
+    "id": "b10_2",
+    "name": "Зита Бебия",
+    "familyId": "bebiya",
+    "dates": "",
+    "photo": "img/b10_2.jpg",
+    "bio": ""
+  },
+  {
+    "id": "b10_3",
+    "name": "Артур Бебия",
+    "familyId": "bebiya",
+    "dates": "",
+    "photo": "img/b10_3.jpg",
+    "bio": ""
+  },
+
+  {
+    "id": "b11",
+    "name": "Александр (Зураб) Бебия",
+    "familyId": "bebiya",
+    "dates": "",
+    "photo": "img/b11.jpg",
+    "bio": "",
+    "children": ["b11_1", "b11_2"]
+  },
+  {
+    "id": "b11_1",
+    "name": "Гигла Бебия",
+    "familyId": "bebiya",
+    "dates": "",
+    "photo": "img/b11_1.jpg",
+    "bio": ""
+  },
+  {
+    "id": "b11_2",
+    "name": "Гиа Бебия",
+    "familyId": "bebiya",
+    "dates": "",
+    "photo": "img/b11_2.jpg",
+    "bio": ""
+  },
+
+  {
+    "id": "b12",
+    "name": "Иура (Нани) Бебия",
+    "familyId": "bebiya",
+    "dates": "",
+    "photo": "img/b12.jpg",
+    "bio": "",
+    "children": ["b12_1", "b12_2"]
+  },
+  {
+    "id": "b12_1",
+    "name": "Леон Бебия",
+    "familyId": "bebiya",
+    "dates": "",
+    "photo": "img/b12_1.jpg",
+    "bio": ""
+  },
+  {
+    "id": "b12_2",
+    "name": "Луиза Бебия",
+    "familyId": "bebiya",
+    "dates": "",
+    "photo": "img/b12_2.jpg",
+    "bio": ""
+  },
+
+  {
+    "id": "sv_root",
+    "name": "Род Свиридовых",
+    "familyId": "sviridov",
+    "isGroup": true,
+    "dates": "",
+    "photo": "",
+    "bio": "",
+    "children": ["sv1", "sv5"]
+  },
+  {
+    "id": "sv1",
+    "name": "Василий Свиридов",
+    "familyId": "sviridov",
+    "dates": "",
+    "photo": "img/sv1.jpg",
+    "bio": "",
+    "partner": "sv2",
+    "children": ["sv3", "sv4"]
+  },
+  {
+    "id": "sv2",
+    "name": "Надежда Свиридова",
+    "familyId": "nadezhda_fam",
+    "dates": "",
+    "photo": "img/sv2.jpg",
+    "bio": ""
+  },
+  {
+    "id": "sv4",
+    "name": "Свиридов Георгий Васильевич",
+    "familyId": "sviridov",
+    "dates": "",
+    "photo": "img/sv4.jpg",
+    "bio": "",
+    "partner": "sv4_natasha",
+    "children": ["sv_sasha"],
+    "stepChildren": ["sv_alina"]
+  },
+  {
+    "id": "sv4_natasha",
+    "name": "Свиридова Наталья Владимировна",
+    "familyId": "natasha_fam",
+    "dates": "17.02.1983",
+    "photo": "img/sv4_natasha.jpg",
+    "bio": "",
+    "children": ["sv_sasha", "sv_alina"]
+  },
+  {
+    "id": "sv_sasha",
+    "name": "Саша Свиридов",
+    "familyId": "sviridov",
+    "dates": "",
+    "photo": "img/sv_sasha.jpg",
+    "bio": ""
+  },
+  {
+    "id": "sv_alina",
+    "name": "Алина",
+    "familyId": "natasha_fam",
+    "dates": "",
+    "photo": "img/sv_alina.jpg",
+    "bio": "",
+    "partner": "sv_danil",
+    "children": ["sv_anna_alina"]
+  },
+  {
+    "id": "sv_danil",
+    "name": "Данил",
+    "familyId": "danilov",
+    "dates": "",
+    "photo": "img/sv_danil.jpg",
+    "bio": ""
+  },
+  {
+    "id": "sv_anna_alina",
+    "name": "Анна",
+    "familyId": "danilov",
+    "dates": "",
+    "photo": "img/sv_anna_alina.jpg",
+    "bio": ""
+  },
+  {
+    "id": "sv5",
+    "name": "Свиридов Сергей Сергеевич",
+    "familyId": "sviridov",
+    "dates": "18.12.1962",
+    "photo": "img/sv5.jpg",
+    "bio": "",
+    "partner": "sv6",
+    "children": ["sv7", "sv8"]
+  },
+  {
+    "id": "sv6",
+    "name": "Свиридова Марина Анатольевна",
+    "familyId": "marina_fam",
+    "dates": "11.06.1964",
+    "photo": "img/sv6.jpg",
+    "bio": ""
+  },
+  {
+    "id": "sv7",
+    "name": "Свиридов Егор Сергеевич",
+    "familyId": "sviridov",
+    "dates": "10.08.1984",
+    "photo": "img/sv7.jpg",
+    "bio": ""
+  },
+  {
+    "id": "sv8",
+    "name": "Свиридова Дарина Сергеевна",
+    "familyId": "sviridov",
+    "dates": "25.06.2008",
+    "photo": "img/sv8.jpg",
+    "bio": ""
+  }
+]

@@ -1,0 +1,80 @@
+<!-- ФАЙЛ: index.html -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Древо Семьи</title>
+  
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/tree.css">
+  <link rel="stylesheet" href="css/modal.css">
+</head>
+<body>
+  <div id="loader" class="loader-overlay">
+    <div class="spinner"></div>
+    <p>Формируем семейное древо...</p>
+  </div>
+
+  <div id="welcome-modal" class="modal-overlay" role="dialog" aria-modal="true">
+    <div class="modal-content new-modal">
+      <h2 class="modal-title">Поиск по семейному древу</h2>
+      <p class="modal-desc">Начните вводить имя, фамилию или год рождения, чтобы мгновенно переместиться к персоне.</p>
+      
+      <div class="search-wrapper">
+        <span class="search-icon">
+          <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </span>
+        <input type="text" id="person-search" class="person-search" placeholder="Начните вводить (напр. Олег)..." autocomplete="off">
+        <span class="esc-badge">ESC</span>
+      </div>
+
+      <div id="autocomplete-list" class="autocomplete-list"></div>
+
+      <div class="modal-buttons center">
+        <button id="btn-show-all" class="btn btn-outline-pill">Показать всё древо</button>
+      </div>
+    </div>
+  </div>
+
+  <aside id="person-panel" class="person-panel hidden">
+    <button id="close-panel" class="btn-close-panel">✕</button>
+    <div class="panel-header">
+      <div id="panel-avatar" class="panel-avatar-wrapper"></div>
+      <h2 id="panel-name" class="panel-name">Имя Персоны</h2>
+      <div class="panel-meta">
+        <span id="panel-dates" class="panel-dates"></span>
+        <span id="panel-badge" class="family-badge"></span>
+      </div>
+    </div>
+    <div class="panel-body">
+      <p id="panel-bio" class="panel-bio"></p>
+    </div>
+  </aside>
+
+  <main class="tree-container" id="tree-container">
+    <!-- Плавающая панель с кнопками наверху слева -->
+    <div class="top-actions">
+      <button id="theme-toggle" class="btn btn-small btn-secondary shadow-btn">🌙 Темная тема</button>
+      <button id="btn-search" class="btn btn-small btn-secondary shadow-btn">🔍 Поиск</button>
+      <button id="btn-reset" class="btn btn-small shadow-btn btn-primary" style="display: none;">Сбросить фокус</button>
+    </div>
+
+    <!-- Контролы камеры внизу справа -->
+    <nav class="tree-controls">
+      <button id="btn-zoom-in" class="control-btn">+</button>
+      <button id="btn-zoom-out" class="control-btn">−</button>
+      <button id="btn-zoom-fit" class="control-btn">⛶</button>
+    </nav>
+
+    <!-- Холст дерева -->
+    <div id="tree-wrapper">
+      <svg id="metro-lines"></svg>
+      <div id="tree" class="tree"></div>
+    </div>
+  </main>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
